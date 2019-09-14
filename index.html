@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Park Finder</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <script type="text/css" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+<!-- Weather section      -->
+    <section id="weather-container">
+        <div class="search-container">
+            <form id="search-form">
+                <a href="#" class="userCurrentLocation"><i class="fas fa-location-arrow"></i></a>
+                <label for="city">City</label>
+                <input type="text" name="user-city" id="user-city" required placeholder="City">
+                <label for="state">State</label>
+                <input type="text" name="user-state" id="user-state" maxlength="2" required placeholder="State" size="5">
+                <a href="#" class="searchButton"><i class="fas fa-search-location"></i></a>
+            </form>
+        </div>
+        <div class="weather-details">
+            <div>Chance of rain: <span id="rain"></span></div>
+            <div>Humidity: <span id="humidity"></span></div>
+            <div>Wind: <span id="wind"></span></div>
+            <!-- <div>UV Index: <span></span></div> -->
+        </div>
+        <div class="weather-banner">
+            <div class="weather-currently">
+                <div class="weather-icon">
+                    <img src="logoImagePlaceholder.png" alt="weather image">
+                </div>
+                <div class="weather-description">
+                    <div class="we-desc-summary"><span id="currentDegree"></span> <span id="currentDescription"></span></div>
+                    <div>Feels like: <span id="feelsLike">10</span></div>
+                    <div>High: <span id="high">10</span></div>
+                    <div>Low: <span id="low">10</span></div>
+                </div>
+            </div>
+            <div id="weather-summary"></div>
+        </div>
+    </section>
+
+<!-- Parks Section      -->
+    <section id="park-container">
+        <h1 class="results hidden"> Parks near <span id="user-location-city"></span>.</h1>
+        <div class="parks">
+        <ul class="displayedResults"></ul>
+        </div>
+    </section>
+</div>
+    
+ 
+<script src="assets/js/skycons.js"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+</body>
+</html>

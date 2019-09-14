@@ -1,0 +1,249 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+/* Weather styles  */
+.search-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background-color: #eee;
+    border: 1px solid transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#searchForm {
+    text-align: center;
+    display: flex;
+    margin: 0 0 0 10px;
+    padding: 4px;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    white-space: nowrap;
+}
+
+/* #search-form>label{
+    display: none;
+} */
+
+#searchForm input, #searchForm label, #searchForm a{
+    display: inline-block;
+    padding: 4px;
+    margin: 4px;
+}
+
+.weather-details{
+    position: relative;
+    text-align: center;
+    left: -10px;
+    white-space: nowrap;
+    font-size: 14px;
+    margin: 0 auto;
+    max-width: 750px;
+    background: pink;
+}
+
+.weather-details>div{
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.weather-banner{
+    width: 100%;
+    max-width: 830px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    /* margin: 12px 15px; */
+    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    color: white;    
+}
+
+.weather-banner div{
+    display: inline-block;
+}
+
+.weather-currently{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: green; */
+}
+
+.weather-icon{
+    width: 60px;
+    height: 60px;
+    align-items: center;
+}
+.weather-icon img{
+    padding: 4px;
+    border: none;
+    width: 60px;
+    height: 60px;
+}
+
+.weather-description{
+    font-weight: 600;
+    text-align: center;
+}
+
+.feel-high-low{
+    display: flex;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.weather-summary{
+    position: relative;
+    top: 0;
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+
+/* Park styles */
+.park-container {
+    /* box-shadow: 0 0 30px rgba(72, 94, 115, 0.7); */
+    padding: 16px;
+    width: 100%;
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    justify-content: center;
+    /* position: relative; */
+    background: rgb(241, 244, 245);
+    font-family: sans-serif;
+    color: black;
+}
+
+h1.results{
+    padding: 8px 24px;
+}
+
+.parks{
+    width: 100%;
+	overflow: hidden;
+	/* background: skyblue; */
+	margin: 0 auto;
+	padding: 4px;
+}
+
+.parks ul{
+	padding: 0px;
+	margin: 0px;
+    width: 100%;
+}
+
+div.imgWrapper{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.parks ul li .projectImage {
+	width: 70%;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 0;
+	padding-bottom: 0px;
+	margin: 0;
+}
+
+.parks ul li{
+	box-shadow: 0 0 30px rgba(72, 94, 115, 0.7);
+	list-style: none;
+	float: left;
+    width: 100%;
+    /* border: 1px solid black; */
+	/* background: #F6ECE7; */
+	margin: 20px 20px 0px 0px;
+	box-sizing: border-box;
+}
+
+.parks ul li:hover{
+	opacity: 0.9;
+}
+
+.parks ul li .title{
+	width: 100%;
+	height: auto;
+    line-height: 25px;
+    padding: 4px;
+	/* border: 1px solid black; */
+	background-color: white;
+	text-align: center;
+}
+
+.parks ul li .title:hover{
+	background: #c9e6ff;
+	color: white;
+}
+
+div.park-links{
+	display: flex;
+	display: inline-block;
+	padding: 8px;
+    width: 100%;
+}
+
+
+.parks ul li .description{
+	width: 100%;
+	/* height: 30px; */
+	line-height: 15px;
+	margin: 0px;
+	font-family: 'Roboto', sans-serif;
+	font-size: bold;
+	padding: 8px;
+	/*background-color: white;*/
+	/* text-align: center; */
+	/* display: none; */
+}
+
+div.paraWrapper{
+	height: auto;
+}
+
+div.park-links .parkButton{
+	display: flex;
+    background: #c9e6ff;
+    /* width: 100%; */
+    /* text-align: center; */
+	border: none;
+  	padding: 4px 4px;
+  	margin-top: 16px;
+  	display: inline-block;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+a.parkButton:hover, a.parkButton:focus{
+	background: #92bde7;
+	color: #f9feff;
+	outline: 0;
+    transition: background-color 2s ease-out;
+}
+
+.center{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
