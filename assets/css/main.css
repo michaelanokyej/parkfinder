@@ -4,6 +4,11 @@ body{
     padding: 0;
 }
 
+.container{
+    width: 100%;
+    height: 100vh;
+}
+
 .hidden{
     display: none;
 }
@@ -14,11 +19,16 @@ body{
     position: relative;
     width: 100%;
     height: 45px;
-    background-color: #eee;
+    background: #d1cfcb;
+    color: #141413;
+    /* color: antiquewhite; */
     border: 1px solid transparent;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+}
+.fas{
+    color: #141413;
 }
 
 #searchForm {
@@ -44,13 +54,13 @@ body{
 
 .weather-details{
     position: relative;
-    text-align: center;
-    left: -10px;
+    width: 100%;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0 auto;
     max-width: 750px;
-    background: pink;
+    background: #e3e1dc;
+    color: #141413;
 }
 
 .weather-details>div{
@@ -67,7 +77,7 @@ body{
     font-weight: 400;
     text-align: center;
     /* margin: 12px 15px; */
-    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    background: linear-gradient(rgb(47, 150, 163), rgb(94, 116, 238));
     color: white;    
 }
 
@@ -82,16 +92,17 @@ body{
     /* background: green; */
 }
 
-.weather-icon{
-    width: 60px;
-    height: 60px;
+div.weather-icon{
+    display: flex;
+    display: block;
     align-items: center;
+    justify-content: center;
 }
 .weather-icon img{
     padding: 4px;
     border: none;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 .weather-description{
@@ -99,20 +110,29 @@ body{
     text-align: center;
 }
 
-.feel-high-low{
+div.we-desc-summary{
+    display: block;
+}
+
+.feels-like{
+    display: inline;
     display: flex;
     font-weight: 300;
     font-size: 16px;
     line-height: 1.5;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.weather-summary{
+#weather-summary{
     position: relative;
-    top: 0;
+    margin: 0;
+    margin-bottom: 0;
     display: block;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 300;
     margin-bottom: 6px;
+    background: #e3e1dc;
+    color: #141413;
 }
 
 
@@ -132,7 +152,9 @@ body{
 }
 
 h1.results{
-    padding: 8px 24px;
+    padding: 2px 4px;
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
 .parks{
@@ -140,7 +162,7 @@ h1.results{
 	overflow: hidden;
 	/* background: skyblue; */
 	margin: 0 auto;
-	padding: 4px;
+	padding: 0;
 }
 
 .parks ul{
@@ -171,7 +193,8 @@ div.imgWrapper{
 	float: left;
     width: 100%;
     /* border: 1px solid black; */
-	/* background: #F6ECE7; */
+    /* background: #d1cfcb; */
+	background: #F6ECE7;
 	margin: 20px 20px 0px 0px;
 	box-sizing: border-box;
 }
@@ -196,21 +219,23 @@ div.imgWrapper{
 }
 
 div.park-links{
-	display: flex;
 	display: inline-block;
 	padding: 8px;
-    width: 100%;
+    /* width: 100%; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 
 .parks ul li .description{
-	width: 100%;
+	width: 90%;
 	/* height: 30px; */
-	line-height: 15px;
+	line-height: 20px;
 	margin: 0px;
 	font-family: 'Roboto', sans-serif;
 	font-size: bold;
-	padding: 8px;
+	padding: 4px;
 	/*background-color: white;*/
 	/* text-align: center; */
 	/* display: none; */
@@ -223,6 +248,7 @@ div.paraWrapper{
 div.park-links .parkButton{
 	display: flex;
     background: #c9e6ff;
+    color: #141413;
     /* width: 100%; */
     /* text-align: center; */
 	border: none;

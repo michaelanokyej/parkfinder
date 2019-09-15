@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
     <script type="text/css" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -32,13 +33,13 @@
         <div class="weather-banner">
             <div class="weather-currently">
                 <div class="weather-icon">
-                    <img src="logoImagePlaceholder.png" alt="weather image">
+                    <img src="logoImagePlaceholder.png" alt="weather image" id="weatherIcon">
                 </div>
                 <div class="weather-description">
                     <div class="we-desc-summary"><span id="currentDegree"></span> <span id="currentDescription"></span></div>
-                    <div>Feels like: <span id="feelsLike">10</span></div>
-                    <div>High: <span id="high">10</span></div>
-                    <div>Low: <span id="low">10</span></div>
+                    <div class="feels-like">Feels like: <span id="feelsLike"></span></div>
+                    <div class="feels-like">High: <span id="high"></span></div>
+                    <div class="feels-like">Low: <span id="low"></span></div>
                 </div>
             </div>
             <div id="weather-summary"></div>

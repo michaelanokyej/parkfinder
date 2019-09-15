@@ -6,6 +6,7 @@ let userStateInput;
 let rain = $('#rain');
 let lochumidity = $('#humidity');
 let wind = $('#wind');
+let weatherIcon = $('#weatherIcon');
 // let UV = $('.we-de-UVIndex>span');
 let currentDescription = $('#currentDescription');
 let currentDegree = $('#currentDegree');
@@ -14,6 +15,7 @@ let userCurrentCity = $('#user-location-city');
 let feelsLike = $('#feelsLike');
 let weatherHigh = $('#high');
 let weatherLow = $('#low');
+let getnewicon;
 
 // Initial function to run when page loads 
 function initialize(){
@@ -35,17 +37,26 @@ function initialize(){
                 console.log(data);
                 const {temperature, summary, humidity, windSpeed, apparentTemperature} = data.currently;
                 const {precipProbability, apparentTemperatureLow, apparentTemperatureHigh} = data.daily.data[0];
+                getnewicon = data.hourly.data[0].icon;
                 // Display elements in DOM
-                currentDegree.text(Math.floor(temperature));
+                currentDegree.text(Math.floor(temperature)+'°');
                 currentDescription.text(summary);
-                rain.text(Math.floor(precipProbability));
-                lochumidity.text(Math.floor(humidity));
-                wind.text(Math.floor(windSpeed));
-                overallSummary.text(data.daily.data[0].summary);
-                feelsLike.text(Math.floor(apparentTemperature));
-                weatherHigh.text(Math.floor(apparentTemperatureHigh));
-                weatherLow.text(Math.floor(apparentTemperatureLow));
+                rain.text(Math.floor(precipProbability)+'°');
+                lochumidity.text(Math.floor(humidity)+ '%');
+                wind.text(Math.floor(windSpeed)+'mph');
+                overallSummary.text(data.daily.data[0].summary);     
+                feelsLike.text(Math.floor(apparentTemperature)+'°');
+                weatherHigh.text(Math.floor(apparentTemperatureHigh)+'°');
+                weatherLow.text(Math.floor(apparentTemperatureLow)+'°');
+
+                console.log(getnewicon);
+                if(getnewicon === "clear-day"){
+                    weatherIcon.attr('src', 'assets/images/clear-day.png');
+                }else{
+                    weatherIcon.attr('src', 'assets/images/partly-cloudy-day.png');
+                }
                 })
+            // getWeatherIcon(getnewicon)
             getUserState(long, lat)
         }); 
     }else{
@@ -78,10 +89,11 @@ function initialize(){
     });
     }
 
-    // Use user,s state to call parks API 
+    // Use user's state to call parks API 
     function getParks(userState){
-        const parkKey= 'RaYswaUxaB9BWohOoxp1qBuF5mSz9pFYsvP7NOWo'
-        fetch(`https://developer.nps.gov/api/v1/places?q=${userState}&api_key=${parkKey}&limit=9`)
+        const parkKey = 'RaYswaUxaB9BWohOoxp1qBuF5mSz9pFYsvP7NOWo';
+        const  url = `https://developer.nps.gov/api/v1/places?q=${userState}&api_key=${parkKey}&limit=9`;
+        fetch(url)
         .then(response => {
             if(response.ok){
                 return response.json();
@@ -140,12 +152,10 @@ function getUserCords(userCityInput, userStateInput){
  })
     .then(responseJson => {
      console.log(responseJson);
-     const userState = userStateInput;     
      const userLong = responseJson[0].lon;
      const userLat = responseJson[0].lat;
      $(userCurrentCity).text(`${userCityInput}`)
      console.log (userState);
-     getParks(userState)
      getWeather(userLong,userLat)
  })
  .catch(err => {
@@ -163,17 +173,70 @@ function getUserCords(userCityInput, userStateInput){
             console.log(data);
             const {temperature, summary, humidity, windSpeed, apparentTemperature} = data.currently;
             const {precipProbability, apparentTemperatureLow, apparentTemperatureHigh} = data.daily.data[0];
+            getnewicon = data.hourly.icon;
             // Display elements in DOM
-            currentDegree.text(Math.floor(temperature));
+            currentDegree.text(Math.floor(temperature)+'°');
             currentDescription.text(summary);
-            rain.text(Math.floor(precipProbability));
-            lochumidity.text(Math.floor(humidity));
-            wind.text(Math.floor(windSpeed));
+            rain.text(Math.floor(precipProbability)+'°');
+            lochumidity.text(Math.floor(humidity)+'%');
+            wind.text(Math.floor(windSpeed)+'mph');
             overallSummary.text(data.daily.data[0].summary);
-            feelsLike.text(Math.floor(apparentTemperature));
-            weatherHigh.text(Math.floor(apparentTemperatureHigh));
-            weatherLow.text(Math.floor(apparentTemperatureLow));
-            })
+            feelsLike.text(Math.floor(apparentTemperature)+'°');
+            weatherHigh.text(Math.floor(apparentTemperatureHigh)+'°');
+            weatherLow.text(Math.floor(apparentTemperatureLow)+'°');
+
+            console.log(getnewicon);
+            if(getnewicon === "clear-day"){
+                weatherIcon.attr('src', 'assets/images/clear-day.png');
+            }else{
+                weatherIcon.attr('src', 'assets/images/partly-cloudy-day.png');
+            }
+        })
+    }
+
+    function getnewParks(userState){
+        const parkKey = 'RaYswaUxaB9BWohOoxp1qBuF5mSz9pFYsvP7NOWo';
+        const  url = `https://developer.nps.gov/api/v1/places?stateCode=${userState}&api_key=${parkKey}&limit=9`;
+        fetch(url)
+        .then(response => {
+            if(response.ok){
+                return response.json();
+            }
+            throw new Error(response.statusText)
+        })
+        // .then(responseJson => displayResults(responseJson))
+        .then(responseJson => {
+            console.log(responseJson)
+            displayNewResults(responseJson)
+        })
+        .catch(err => {
+          $('.errorMessage').text(`Something went wrong: ${err.message}`);
+        });
+
+        function displayNewResults(responseJson){
+            let array = responseJson.data;
+            if(array === undefined || array.length === 0){
+                alert('Sorry, something went wrong, check input.');
+            }else{
+                for(let i=0; i < array.length; i++){
+                    $('.displayedResults').append(`
+                    <li class="projectLi"> 
+                        <div class="title">${array[i].title}</div>
+                        <div class="imgWrapper">
+                            <img src="${array[i].listingimage.url}" alt="Todo List screenshot" class="projectImage" />
+                        </div>
+                        <div class="paraWrapper">
+                            <p class="center description">${array[i].listingdescription}</p>
+                        </div>
+                        <div class="park-links">
+                            <a href="${array[i].url}" class ="parkButton" target="_blank">Go to park</a> 
+                        </div>
+                    </li>
+                    `)
+                }
+            }
+            $('h1.results').removeClass('hidden');
+        }
     }
 
     function listenForSearch(){
@@ -185,6 +248,8 @@ function getUserCords(userCityInput, userStateInput){
             console.log(`city = ${userCityInput} state= ${userStateInput}`);
             console.log('search buttton clicked');
             getUserCords(userCityInput, userStateInput)
+            userState = userStateInput;  
+            getnewParks(userState)           
         });
     }
 
