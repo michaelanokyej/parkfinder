@@ -63,8 +63,16 @@ function initialize(){
         alert ('Please allow browser to user location');
     }
     listenForSearch()
+    listenForHover()
 }
 
+function listenForHover(){
+$('.displayedResults').on('mouseenter', '.projectLi', function( event ) {
+    $(this).find(".description").css({"display": "flex"}); 
+}).on('mouseleave', '.projectLi', function( event ) {
+    $(this).find(".description").css({"display": "none"}); 
+});
+}
 
 // Reverse geocode user's long 
 // and latitude to get user's state 
@@ -251,6 +259,7 @@ function getUserCords(userCityInput, userStateInput){
             userState = userStateInput;  
             getnewParks(userState)           
         });
+        listenForHover()
     }
 
 
