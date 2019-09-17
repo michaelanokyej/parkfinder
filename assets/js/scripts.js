@@ -11,7 +11,8 @@ let weatherIcon = $('#weatherIcon');
 let currentDescription = $('#currentDescription');
 let currentDegree = $('#currentDegree');
 let overallSummary = $('#weather-summary');
-let userCurrentCity = $('#user-location-city');
+let parkResults = $('h1.results');
+// let userCurrentCity = $('#user-location-city');
 let feelsLike = $('#feelsLike');
 let weatherHigh = $('#high');
 let weatherLow = $('#low');
@@ -63,16 +64,16 @@ function initialize(){
         alert ('Please allow browser to user location');
     }
     listenForSearch()
-    listenForHover()
+    // listenForHover()
 }
 
-function listenForHover(){
-$('.displayedResults').on('mouseenter', '.projectLi', function( event ) {
-    $(this).find(".description").css({"display": "flex"}); 
-}).on('mouseleave', '.projectLi', function( event ) {
-    $(this).find(".description").css({"display": "none"}); 
-});
-}
+// function listenForHover(){
+// $('.displayedResults').on('mouseenter', '.projectLi', function( event ) {
+//     $(this).find(".description").css({"display": "flex"}); 
+// }).on('mouseleave', '.projectLi', function( event ) {
+//     $(this).find(".description").css({"display": "none"}); 
+// });
+// }
 
 // Reverse geocode user's long 
 // and latitude to get user's state 
@@ -88,7 +89,8 @@ $('.displayedResults').on('mouseenter', '.projectLi', function( event ) {
     .then(responseJson => {
         console.log(responseJson);
         userState = responseJson.address.state;
-        $(userCurrentCity).text(`${responseJson.address.city}`)
+        $(parkResults).text(`Parks near ${responseJson.address.city}`);
+        // $(userCurrentCity).text(``)
         console.log (userState);
         getParks(userState)
     })
@@ -127,7 +129,7 @@ $('.displayedResults').on('mouseenter', '.projectLi', function( event ) {
                     <li class="projectLi"> 
                         <div class="title">${array[i].title}</div>
                         <div class="imgWrapper">
-                            <img src="${array[i].listingimage.url}" alt="Todo List screenshot" class="projectImage" />
+                            <img src="${array[i].listingimage.url}" alt="Park photo" class="projectImage" />
                         </div>
                         <div class="paraWrapper">
                             <p class="center description">${array[i].listingdescription}</p>
@@ -231,7 +233,7 @@ function getUserCords(userCityInput, userStateInput){
                     <li class="projectLi"> 
                         <div class="title">${array[i].title}</div>
                         <div class="imgWrapper">
-                            <img src="${array[i].listingimage.url}" alt="Todo List screenshot" class="projectImage" />
+                            <img src="${array[i].listingimage.url}" alt="Park photo" class="projectImage" />
                         </div>
                         <div class="paraWrapper">
                             <p class="center description">${array[i].listingdescription}</p>
@@ -253,13 +255,14 @@ function getUserCords(userCityInput, userStateInput){
             $('.displayedResults').empty();
             userCityInput = $('#user-city').val();
             userStateInput = $('#user-state').val();
+            $(parkResults).text(`Parks near ${userCityInput}`);
             console.log(`city = ${userCityInput} state= ${userStateInput}`);
             console.log('search buttton clicked');
             getUserCords(userCityInput, userStateInput)
             userState = userStateInput;  
             getnewParks(userState)           
         });
-        listenForHover()
+        // listenForHover()
     }
 
 
