@@ -206,7 +206,7 @@ function getUserCords(userCityInput, userStateInput){
 
     function getnewParks(userState){
         const parkKey = 'RaYswaUxaB9BWohOoxp1qBuF5mSz9pFYsvP7NOWo';
-        const  url = `https://developer.nps.gov/api/v1/places?stateCode=${userState}&api_key=${parkKey}&limit=9`;
+        const  url = `https://developer.nps.gov/api/v1/parks?stateCode=${userState}&api_key=${parkKey}&limit=9`;
         fetch(url)
         .then(response => {
             if(response.ok){
@@ -231,12 +231,9 @@ function getUserCords(userCityInput, userStateInput){
                 for(let i=0; i < array.length; i++){
                     $('.displayedResults').append(`
                     <li class="projectLi"> 
-                        <div class="title">${array[i].title}</div>
-                        <div class="imgWrapper">
-                            <img src="${array[i].listingimage.url}" alt="Park photo" class="projectImage" />
-                        </div>
+                        <div class="title">${array[i].name}</div>
                         <div class="paraWrapper">
-                            <p class="center description">${array[i].listingdescription}</p>
+                            <p class="center description">${array[i].description}</p>
                         </div>
                         <div class="park-links">
                             <a href="${array[i].url}" class ="parkButton" target="_blank">Go to park</a> 
