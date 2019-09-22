@@ -26,7 +26,7 @@ Mobile Landing Page:
 
 ![Mobile landing screen](assets/images/mobileLandingPage.png)
 
-Recommendations:
+Mobile Search Results Page:
 
 ![Mobile Search results screen](assets/images/mobileResultsPage.png)
 
