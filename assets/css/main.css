@@ -73,7 +73,6 @@ div.weather-details span{
 
 .weather-banner{
     width: 100%;
-    /* max-width: 830px; */
     margin: 0 auto;
     font-size: 16px;
     font-weight: 400;
@@ -145,7 +144,6 @@ div.we-desc-summary{
     flex: 3;
     flex-direction: column;
     justify-content: center;
-    /* position: relative; */
     background: rgb(241, 244, 245);
     font-family: sans-serif;
     color: black;
@@ -167,7 +165,6 @@ span#user-location-city{
 .parks{
     width: 100%;
 	overflow: hidden;
-	/* background: skyblue; */
 	margin: 0 auto;
 	padding: 0;
 }
@@ -199,8 +196,6 @@ div.imgWrapper{
 	list-style: none;
 	float: left;
     width: 100%;
-    /* border: 1px solid black; */
-    /* background: #d1cfcb; */
 	background: #F6ECE7;
 	margin: 20px 20px 0px 0px;
 	box-sizing: border-box;
@@ -219,7 +214,6 @@ div.imgWrapper{
     justify-content: center;
     align-items: center;
 	text-align: center;
-	/* border: 1px solid black; */
 	background-color: white;
 }
 
@@ -231,7 +225,6 @@ div.imgWrapper{
 div.park-links{
 	display: inline-block;
 	padding: 8px;
-    /* width: 100%; */
     align-items: center;
     justify-content: center;
     display: flex;
@@ -243,15 +236,12 @@ div.park-links{
 	/* height: 2px; */
 	line-height: 20px;
     margin: 0px;
-	/* font-family: 'Roboto', sans-serif; */
     font-family: 'Nunito', sans-serif;
     font-size: 300;
 	padding: 8px;
-	/*background-color: white;*/
     text-align: center;
     justify-content: center;
     align-self: center;
-	/* display: none; */
 }
 
 div.paraWrapper{
@@ -262,8 +252,6 @@ div.park-links .parkButton{
 	display: flex;
     background: #c9e6ff;
     color: #141413;
-    /* width: 100%; */
-    /* text-align: center; */
 	border: none;
   	padding: 4px 4px;
   	margin-top: 16px;
@@ -343,18 +331,12 @@ a.parkButton:hover, a.parkButton:focus{
     }
     
     .displayedResults{
-    /* padding: 0px;
-    margin: 2px 10px 0px 10px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     }
 
     .parks ul li{
-        /* width: 40%;
-		margin-top: 24px;
-        margin-left: 30px; */
-        /* background-color: red; */
         margin: 5px;
         width: 300px;
         padding: 16px;
@@ -374,35 +356,16 @@ a.parkButton:hover, a.parkButton:focus{
         padding: 0;
     }
     
-    /* .parks ul li .title:hover{
-        background: #c9e6ff;
-        color: white;
-    }
-    
-    div.park-links{
-        display: inline-block;
-        padding: 8px;
-        width: 30px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        font-size: 1.5rem;
-    }
-     */
-    
     .parks ul li .description{
         width: 95%;
-        /* height: 30px; */
         line-height: 20px;
         margin: 0px;
         font-family: 'Nunito', sans-serif;
         font-size: 300;
         padding: 8px;
-        /*background-color: white;*/
         text-align: center;
         justify-content: center;
         align-self: center;
-        /* display: none; */
     }
     
     div.paraWrapper{
@@ -413,8 +376,6 @@ a.parkButton:hover, a.parkButton:focus{
         display: flex;
         background: #c9e6ff;
         color: #141413;
-        /* width: 100%; */
-        /* text-align: center; */
         border: none;
         padding: 4px 4px;
         margin-top: 16px;
@@ -439,7 +400,6 @@ a.parkButton:hover, a.parkButton:focus{
         width: 30%;
 		margin-top: 24px;
         margin-left: 16px;
-        /* margin: 0; */
         padding: 0;
     }
 }
